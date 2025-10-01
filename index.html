@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guía JS — Códigos hasta Clase Math</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Guía de JS — Códigos del PDF (hasta Clase Math)</h1>
+      <div class="sub">Elegí la consigna en el menú. Se muestra el código tal como me lo pasaste, literal.</div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <aside class="sidebar">
+      <label for="menu">Consigna</label>
+      <select id="menu"></select>
+      <div class="btns">
+        <button class="btn" id="copiar">Copiar código</button>
+        <button class="btn" id="descargar">Descargar .txt</button>
+      </div>
+      <p class="hint">“Clase Math” queda como sección sin código.</p>
+    </aside>
+
+    <section class="panel">
+      <h2 class="title" id="titulo"></h2>
+      <pre><code id="codigo"></code></pre>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap sub">
+      Códigos provistos por el usuario. Página generada para visualizarlos por consigna.
+    </div>
+  </footer>
+
+  <script>
+    // Lista de consignas con su código (literal)
+    const ejercicios = [
+      {
+        titulo: "Introduccion",
+        codigo: `<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>AA13</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script type="text/javascript">
+            document.write("Emanuel");
+            document.write("<br>");
+            document.write("21")
+        <\\/script>
+    </body>
+</html>`
+      },
+      {
+        titulo: "Variables",
+        codigo: `<script type="text/javascript">
+        let nombre = "Matias", sueldo = 1000;
+        document.write("Nombre: " + nombre);
+        document.write("<br>");
+        document.write("Edad: 22");
+        document.write("<br>");
+        document.write("Sueldo: " + sueldo);
+    <\\/script>`
+      },
+      {
+        titulo: "Entrada de datos por teclado.",
+        codigo: `<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>AA13</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+            <script type="text/javascript">
+        let nombre_usuario = prompt("¿Cuál es tu nombre?");
+        let email_usuario = prompt("¿Cuál es tu email?");
+        document.write(nombre_usuario);
+        document.write("<br>");
+        document.write(email_usuario);
+    <\\/script>
+
+
+    </body>
+</html>`
+      },
+      {
+        titulo: "Estructuras secuenciales de programacion",
+        codigo: `<!DOCTYPE html>
+<html>
+    <head>
+        <title>AA13</title>
+        <meta charset="UTF-8">
+    </head>
+
+
+
+
+    <body>
+        <script>
+            let valor1;
+            valor1 = prompt('Ingrese el valor del lado de un cuadrado:');
+            let multiplicacion = valor1 * 4
+            document.write("El lado del cuadrado es: " + valor1);
+            document.write('<br>');
+            document.write("El perímetro del cuadrado es: " + multiplicacion);
+        <\\/script>
+    </body>
+</html>`
+      },
+      {
+        titulo: "Estructuras condicionales simples",
+        codigo: `<!DOCTYPE html>
+<html>
+    <head>
+        <title>AA13</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script>
+            let nota;
+            nota1 = parseInt(prompt('Ingrese la primera nota:'));
+            nota2 = parseInt(prompt('Ingrese la segunda nota:'));
+            nota3 = parseInt(prompt('Ingrese la tercera nota:'));
+            suma = (nota1 + nota2 + nota3)
+            promedio = suma/3
+            if (promedio >=7) {
+                document.write("promocionado!");
+            }
+        <\\/script>
+    </body>
+</html>`
+      },
+      {
+        titulo: "Estructuras condicionales compuestas",
+        codigo: `<!DOCTYPE html>
+<html>
+   <head>
+       <title>AA13</title>
+       <meta charset="UTF-8">
+   </head>
+
+
+
+
+   <body>
+       <script>
+           let num1 = parseFloat(prompt("Ingrese el primer número:"));
+           let num2 = parseFloat(prompt("Ingrese el segundo número:"));
+
+
+           if (num1 > num2)
+           {
+               alert("La suma es: " + (num1 + num2) + "\\nLa diferencia es: " + (num1 - num2));
+           } else
+           {
+               alert("El producto es: " + (num1 * num2) + "\\nLa división es: " + (num1 / num2));
+           }
+
+
+       <\\/script>
+   </body>
+</html>`
+      },
+      {
+        titulo: "Estructuras condicionales anidadas",
+        codigo: `<button onclick="menorDiez()">Menor a diez</button>
+    <script type="text/javascript">
+        function menorDiez() {
+            let num1 = parseInt(prompt("Ingrese el primer numero"));
+            let num2 = parseInt(prompt("Ingrese el segunda numero"));
+            let num3 = parseInt(prompt("Ingrese el tercer numero"));
+            if (num1 < 10) {
+                if (num2 < 10) {
+                    if (num3 < 10) {
+                        document.write("Todos los numeros son menores a diez");
+                    }
+                }
+            }
+        }
+    <\\/script>`
+      },
+      {
+        titulo: "Operadores lógicos || (o) en condicionales",
+        codigo: `<!DOCTYPE html>
+<html>
+<head>
+    <title>AA13</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        let num1, num2, num3;
+        num1 = parseInt(prompt('Ingrese el primer número:'));
+        num2 = parseInt(prompt('Ingrese el segundo número:'));
+        num3 = parseInt(prompt('Ingrese el tercer número:'));
+        if (num1 < 10 || num2 < 10 || num3 < 10) {
+            document.write("Alguno de los números es menor a 10");
+        } else {
+                document.write("Ningún número es menor a 10");
+            }
+    <\\/script>
+</body>
+</html>`
+      },
+      {
+        titulo: "Estructuras switch",
+        codigo: `const app = document.createElement("div");
+document.body.appendChild(app);
+
+const s = "1. casa<br>2. mesa<br>3. perro<br>4. gato";
+app.innerHTML = s;
+
+function traductor() {
+  const t = prompt("ingresa el numero a traducir (1-4):", "1");
+
+  const n = Number(t);
+  let traduccion = "";
+
+  switch (n) {
+    case 1:
+      traduccion = "house";
+      break;
+    case 2:
+      traduccion = "table";
+      break;
+    case 3:
+      traduccion = "dog";  
+      break;
+    case 4:
+      traduccion = "cat";
+      break;
+    default:
+      app.innerHTML += "<br><em>numero invalido. proba con 1–4.</em>";
+      return;
+  }
+
+  app.innerHTML += "<br><strong>traduccion:</strong> " + traduccion;
+}
+
+traductor();`
+      },
+      {
+        titulo: "Estructura repetitiva (while)",
+        codigo: `<button onclick="contador()">Contador</button>
+    <script type="text/javascript">
+        function contador() {
+            let i = 0;
+            while (i < 25) {
+                let num = i * 11;
+                document.write("Número: " + num + "<br>");
+                i++;
+            }
+        }
+    <\\/script>`
+      },
+      {
+        titulo: "Concepto de acumulador",
+        codigo: `<!DOCTYPE html>
+<html>
+<head>
+    <title>AA13</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        let cantidad= 5;
+        let suma = 0;
+        let contador = 1;
+        while (contador <= cantidad) {
+            let altura = parseFloat(prompt("Ingrese la altura de la persona " + contador + " en metros:"));
+            suma += altura;
+            contador++;
+        }
+        let promedio = suma / cantidad;
+        document.write("El promedio de las alturas es: " + promedio.toFixed(2) + " metros");
+    <\\/script>
+</body>
+</html>`
+      },
+      {
+        titulo: "Estructura repetitiva (do/while)",
+        codigo: `<!DOCTYPE html>
+<html>
+<head>
+    <title>AA13</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        let suma = 0;
+        let valor;
+
+        do {
+            valor = parseInt(prompt("Ingrese un valor (9999 para terminar):"));
+            if (valor !== 9999) {
+                suma += valor;
+            }
+        } while (valor !== 9999);
+        document.write("El valor acumulado es: " + suma + "<br>");
+        if (suma === 0) {
+            document.write("El valor es cero");
+        } else if (suma > 0) {
+            document.write("El valor es mayor que cero");
+        } else {
+            document.write("El valor es menor que cero");
+        }
+    <\\/script>
+</body>
+</html>`
+      },
+      {
+        titulo: "Estructura repetitiva for",
+        codigo: `<!DOCTYPE html>
+<html>
+<head>
+    <title>AA13</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        for (let x = 1; x <= 10; x++) {
+            document.write("5 x " + x + " = " + (5 * x) + "<br>");
+        }
+    <\\/script>
+</body>
+</html>`
+      },
+      {
+        titulo: "Funciones",
+        codigo: `<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De menor a mayor</title>
+</head>
+<body>
+    <script>
+        function cargarEnteros(){
+            let entero1 = parseInt(prompt("Ingrese el entero menor: "));
+            let entero2 = parseInt(prompt("Ingrese el entero mayor: "));
+            mostrarRango(entero1, entero2);
+        }
+
+        function mostrarRango(menor, mayor){
+            for (let f = menor; f <= mayor; f++){
+                document.write(f + ' ');
+            }
+        }
+       
+        cargarEnteros();
+    <\\/script>
+</body>
+</html>`
+      },
+      {
+        titulo: "Funciones con parámetros",
+        codigo: `<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mostrar Rango de Números</title>
+</head>
+<body>
+    <script>
+        function solicitarNumeros() {
+            let menor = parseInt(prompt("Ingrese el número menor:"));
+            let mayor = parseInt(prompt("Ingrese el número mayor:"));
+            mostrarRango(menor, mayor);
+        }
+
+        function mostrarRango(menor, mayor) {
+            for (let i = menor; i <= mayor; i++) {
+                document.write(i + " ");
+            }
+        }
+       
+        solicitarNumeros();
+    <\\/script>
+</body>
+</html>`
+      },
+      {
+        titulo: "Funciones que retornan un valor",
+        codigo: `<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular perimetro</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function calcular_perimetro(lado_cuadrado) {
+            return lado_cuadrado * 4;
+        }
+
+        document.write(calcular_perimetro(4));
+    <\\/script>
+</body>
+</html>`
+      },
+      {
+        titulo: "Clase Date",
+        codigo: `<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular perimetro</title>
+</head>
+<body>
+    <script>
+        function obtenerFechaFormateada() {
+            let fecha = new Date();
+            let diasSemana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+            let meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+           
+            let diaSemana = diasSemana[fecha.getDay()];
+            let dia = fecha.getDate();
+            let mes = meses[fecha.getMonth()];
+            let año = fecha.getFullYear();
+           
+            return "Hoy es " + diaSemana + " " + dia + " de " + mes + " de " + año;
+        }
+        document.write(obtenerFechaFormateada());
+    <\\/script>
+
+</body>
+</html>`
+      },
+      {
+        titulo: "Clase array",
+        codigo: `<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular perimetro</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function procesarVector() {
+    let vector = [];
+    let sumaTotal = 0;
+    let sumaMayores36 = 0;
+    let cantidadMayores36 = 0;
+
+      for (let i = 0; i < 8; i++) {
+        let elemento = parseInt(prompt(\`Ingrese el elemento \${i + 1}:\`));
+        vector[i] = elemento;
+               sumaTotal += elemento;
+           
+        if (elemento > 36) {
+            sumaMayores36 += elemento;
+            cantidadMayores36++;
+        }
+    }
+
+    document.write("Resultados: <br>");
+    document.write("Suma total: " + sumaTotal + "<br>");
+    document.write("Suma de elementos mayores a 36: " + sumaMayores36 + "<br>");
+    document.write("Cantidad de valores mayores a 36: " + cantidadMayores36);
+}
+    <\\/script>
+</body>
+</html>`
+      },
+      {
+       titulo: "Clase Math",
+  codigo: `<button onclick="potencia()">Potencia</button>
+    <script type="text/javascript">
+        function potencia() {
+            let num = parseInt(prompt("Ingrese el número"));
+            let numPotencia = Math.pow(num, 3);
+            document.write("El número " + num + " elevado a 3 es igual a: " + numPotencia);
+        }
+    <\\/script>`
+        },
+        {
+  titulo: "Clase String",
+  codigo: `<button onclick="nombres()">Ingresar nombres</button>
+    <script type="text/javascript">
+        function nombres() {
+            let num = 0;
+            let nombre = prompt("Ingrese un nombre o 'Fin' para terminar");
+            while (nombre != "Fin") {
+                num++;
+                nombre = prompt("Ingrese un nombre o 'Fin' para terminar");
+            }
+            document.write("Se ingresaron " + num + " nombres");
+        }
+    <\\/script>`
+},
+    ];
+
+    // Poblar menú
+    const menu = document.getElementById('menu');
+    const titulo = document.getElementById('titulo');
+    const codigo = document.getElementById('codigo');
+
+    ejercicios.forEach((ej, i) => {
+      const opt = document.createElement('option');
+      opt.value = i;
+      opt.textContent = ej.titulo;
+      menu.appendChild(opt);
+    });
+
+    function render(idx){
+      const ej = ejercicios[idx];
+      titulo.textContent = ej.titulo;
+      codigo.textContent = ej.codigo;
+    }
+
+    // Render inicial
+    render(0);
+
+    // Cambio por menú
+    menu.addEventListener('change', e => render(e.target.value));
+
+    // Copiar al portapapeles
+    document.getElementById('copiar').addEventListener('click', async () => {
+      try{
+        await navigator.clipboard.writeText(codigo.textContent);
+        alert('Código copiado.');
+      }catch(err){
+        alert('No se pudo copiar automáticamente. Seleccioná y copiá manualmente.');
+      }
+    });
+
+    // Descargar como .txt
+    document.getElementById('descargar').addEventListener('click', () => {
+      const blob = new Blob([codigo.textContent], {type:'text/plain'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = (titulo.textContent || 'codigo') + '.txt';
+      document.body.appendChild(a);
+      a.click();
+      URL.revokeObjectURL(url);
+      a.remove();
+    });
+  </script>
+</body>
+</html>
