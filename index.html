@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guía JS</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Guía de JS</h1>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <aside class="sidebar">
+      <label for="menu">Consigna</label>
+      <select id="menu"></select>
+      <div class="btns">
+        <button class="btn" id="copiar">Copiar código</button>
+        <button class="btn" id="descargar">Descargar .txt</button>
+      </div>
+    </aside>
+
+    <section class="panel">
+      <h2 class="title" id="titulo"></h2>
+      <pre><code id="codigo"></code></pre>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap sub">
+    Página generada para visualizar los códigos por consigna.
+    </div>
+  </footer>
+
+  <script>
+    // Lista de consignas con su código (literal)
+    const ejercicios = [
+      {
+        titulo: "Introduccion",
+        codigo: `<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>AA13</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script type="text/javascript">
+            document.write("Emanuel");
+            document.write("<br>");
+            document.write("21")
+        <\\/script>
+    </body>
+</html>`
+      },
+      {
+        titulo: "Variables",
+        codigo: `<script type="text/javascript">
+        let nombre = "Matias", sueldo = 1000;
+        document.write("Nombre: " + nombre);
+        document.write("<br>");
+        document.write("Edad: 22");
+        document.write("<br>");
+        document.write("Sueldo: " + sueldo);
+    <\\/script>`
+      },
+      {
+        titulo: "Entrada de datos por teclado.",
+        codigo: `<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>AA13</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+            <script type="text/javascript">
+        let nombre_usuario = prompt("¿Cuál es tu nombre?");
+        let email_usuario = prompt("¿Cuál es tu email?");
+        document.write(nombre_usuario);
+        document.write("<br>");
+        document.write(email_usuario);
+    <\\/script>
+
+
+    </body>
+</html>`
+      },
+      {
+        titulo: "Estructuras secuenciales de programacion",
+        codigo: `<!DOCTYPE html>
+<html>
+    <head>
+        <title>AA13</title>
+        <meta charset="UTF-8">
+    </head>
+
+
+
+
+    <body>
+        <script>
+            let valor1;
+            valor1 = prompt('Ingrese el valor del lado de un cuadrado:');
+            let multiplicacion = valor1 * 4
+            document.write("El lado del cuadrado es: " + valor1);
+            document.write('<br>');
+            document.write("El perímetro del cuadrado es: " + multiplicacion);
+        <\\/script>
+    </body>
+</html>`
+      },
+      {
+        titulo: "Estructuras condicionales simples",
+        codigo: `<!DOCTYPE html>
+<html>
+    <head>
+        <title>AA13</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script>
+            let nota;
+            nota1 = parseInt(prompt('Ingrese la primera nota:'));
+            nota2 = parseInt(prompt('Ingrese la segunda nota:'));
+            nota3 = parseInt(prompt('Ingrese la tercera nota:'));
+            suma = (nota1 + nota2 + nota3)
+            promedio = suma/3
+            if (promedio >=7) {
+                document.write("promocionado!");
+            }
+        <\\/script>
+    </body>
+</html>`
+      },
+      {
+        titulo: "Estructuras condicionales compuestas",
+        codigo: `<!DOCTYPE html>
+<html>
+   <head>
+       <title>AA13</title>
+       <meta charset="UTF-8">
+   </head>
+
+
+
+
+   <body>
+       <script>
+           let num1 = parseFloat(prompt("Ingrese el primer número:"));
+           let num2 = parseFloat(prompt("Ingrese el segundo número:"));
+
+
+           if (num1 > num2)
+           {
+               alert("La suma es: " + (num1 + num2) + "\\nLa diferencia es: " + (num1 - num2));
+           } else
+           {
+               alert("El producto es: " + (num1 * num2) + "\\nLa división es: " + (num1 / num2));
+           }
+
+
+       <\\/script>
+   </body>
+</html>`
+      },
+      {
+        titulo: "Estructuras condicionales anidadas",
+        codigo: `<button onclick="menorDiez()">Menor a diez</button>
+    <script type="text/javascript">
+        function menorDiez() {
+            let num1 = parseInt(prompt("Ingrese el primer numero"));
+            let num2 = parseInt(prompt("Ingrese el segunda numero"));
+            let num3 = parseInt(prompt("Ingrese el tercer numero"));
+            if (num1 < 10) {
+                if (num2 < 10) {
+                    if (num3 < 10) {
+                        document.write("Todos los numeros son menores a diez");
+                    }
+                }
+            }
+        }
+    <\\/script>`
+      },
+      {
+        titulo: "Operadores lógicos || (o) en condicionales",
+        codigo: `<!DOCTYPE html>
+<html>
+<head>
+    <title>AA13</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        let num1, num2, num3;
+        num1 = parseInt(prompt('Ingrese el primer número:'));
+        num2 = parseInt(prompt('Ingrese el segundo número:'));
+        num3 = parseInt(prompt('Ingrese el tercer número:'));
+        if (num1 < 10 || num2 < 10 || num3 < 10) {
+            document.write("Alguno de los números es menor a 10");
+        } else {
+                document.write("Ningún número es menor a 10");
+            }
+    <\\/script>
+</body>
+</html>`
+      },
+      {
+        titulo: "Estructuras switch",
+        codigo: `const app = document.createElement("div");
+document.body.appendChild(app);
+
+const s = "1. casa<br>2. mesa<br>3. perro<br>4. gato";
+app.innerHTML = s;
+
+function traductor() {
+  const t = prompt("ingresa el numero a traducir (1-4):", "1");
+
+  const n = Number(t);
+  let traduccion = "";
+
+  switch (n) {
+    case 1:
+      traduccion = "house";
+      break;
+    case 2:
+      traduccion = "table";
+      break;
+    case 3:
+      traduccion = "dog";  
+      break;
+    case 4:
+      traduccion = "cat";
+      break;
+    default:
+      app.innerHTML += "<br><em>numero invalido. proba con 1–4.</em>";
+      return;
+  }
+
+  app.innerHTML += "<br><strong>traduccion:</strong> " + traduccion;
+}
+
+traductor();`
+      },
+      {
+        titulo: "Estructura repetitiva (while)",
+        codigo: `<button onclick="contador()">Contador</button>
+    <script type="text/javascript">
+        function contador() {
+            let i = 0;
+            while (i < 25) {
+                let num = i * 11;
+                document.write("Número: " + num + "<br>");
+                i++;
+            }
+        }
+    <\\/script>`
+      },
+      {
+        titulo: "Concepto de acumulador",
+        codigo: `<!DOCTYPE html>
+<html>
+<head>
+    <title>AA13</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        let cantidad= 5;
+        let suma = 0;
+        let contador = 1;
+        while (contador <= cantidad) {
+            let altura = parseFloat(prompt("Ingrese la altura de la persona " + contador + " en metros:"));
+            suma += altura;
+            contador++;
+        }
+        let promedio = suma / cantidad;
+        document.write("El promedio de las alturas es: " + promedio.toFixed(2) + " metros");
+    <\\/script>
+</body>
+</html>`
+      },
+      {
+        titulo: "Estructura repetitiva (do/while)",
+        codigo: `<!DOCTYPE html>
+<html>
+<head>
+    <title>AA13</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        let suma = 0;
+        let valor;
+
+        do {
+            valor = parseInt(prompt("Ingrese un valor (9999 para terminar):"));
+            if (valor !== 9999) {
+                suma += valor;
+            }
+        } while (valor !== 9999);
+        document.write("El valor acumulado es: " + suma + "<br>");
+        if (suma === 0) {
+            document.write("El valor es cero");
+        } else if (suma > 0) {
+            document.write("El valor es mayor que cero");
+        } else {
+            document.write("El valor es menor que cero");
+        }
+    <\\/script>
+</body>
+</html>`
+      },
+      {
+        titulo: "Estructura repetitiva for",
+        codigo: `<!DOCTYPE html>
+<html>
+<head>
+    <title>AA13</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        for (let x = 1; x <= 10; x++) {
+            document.write("5 x " + x + " = " + (5 * x) + "<br>");
+        }
+    <\\/script>
+</body>
+</html>`
+      },
+      {
+        titulo: "Funciones",
+        codigo: `<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De menor a mayor</title>
+</head>
+<body>
+    <script>
+        function cargarEnteros(){
+            let entero1 = parseInt(prompt("Ingrese el entero menor: "));
+            let entero2 = parseInt(prompt("Ingrese el entero mayor: "));
+            mostrarRango(entero1, entero2);
+        }
+
+        function mostrarRango(menor, mayor){
+            for (let f = menor; f <= mayor; f++){
+                document.write(f + ' ');
+            }
+        }
+       
+        cargarEnteros();
+    <\\/script>
+</body>
+</html>`
+      },
+      {
+        titulo: "Funciones con parámetros",
+        codigo: `<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mostrar Rango de Números</title>
+</head>
+<body>
+    <script>
+        function solicitarNumeros() {
+            let menor = parseInt(prompt("Ingrese el número menor:"));
+            let mayor = parseInt(prompt("Ingrese el número mayor:"));
+            mostrarRango(menor, mayor);
+        }
+
+        function mostrarRango(menor, mayor) {
+            for (let i = menor; i <= mayor; i++) {
+                document.write(i + " ");
+            }
+        }
+       
+        solicitarNumeros();
+    <\\/script>
+</body>
+</html>`
+      },
+      {
+        titulo: "Funciones que retornan un valor",
+        codigo: `<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular perimetro</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function calcular_perimetro(lado_cuadrado) {
+            return lado_cuadrado * 4;
+        }
+
+        document.write(calcular_perimetro(4));
+    <\\/script>
+</body>
+</html>`
+      },
+      {
+        titulo: "Clase Date",
+        codigo: `<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular perimetro</title>
+</head>
+<body>
+    <script>
+        function obtenerFechaFormateada() {
+            let fecha = new Date();
+            let diasSemana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+            let meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+           
+            let diaSemana = diasSemana[fecha.getDay()];
+            let dia = fecha.getDate();
+            let mes = meses[fecha.getMonth()];
+            let año = fecha.getFullYear();
+           
+            return "Hoy es " + diaSemana + " " + dia + " de " + mes + " de " + año;
+        }
+        document.write(obtenerFechaFormateada());
+    <\\/script>
+
+</body>
+</html>`
+      },
+      {
+        titulo: "Clase array",
+        codigo: `<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular perimetro</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function procesarVector() {
+    let vector = [];
+    let sumaTotal = 0;
+    let sumaMayores36 = 0;
+    let cantidadMayores36 = 0;
+
+      for (let i = 0; i < 8; i++) {
+        let elemento = parseInt(prompt(\`Ingrese el elemento \${i + 1}:\`));
+        vector[i] = elemento;
+               sumaTotal += elemento;
+           
+        if (elemento > 36) {
+            sumaMayores36 += elemento;
+            cantidadMayores36++;
+        }
+    }
+
+    document.write("Resultados: <br>");
+    document.write("Suma total: " + sumaTotal + "<br>");
+    document.write("Suma de elementos mayores a 36: " + sumaMayores36 + "<br>");
+    document.write("Cantidad de valores mayores a 36: " + cantidadMayores36);
+}
+    <\\/script>
+</body>
+</html>`
+      },
+      {
+       titulo: "Clase Math",
+  codigo: `<button onclick="potencia()">Potencia</button>
+    <script type="text/javascript">
+        function potencia() {
+            let num = parseInt(prompt("Ingrese el número"));
+            let numPotencia = Math.pow(num, 3);
+            document.write("El número " + num + " elevado a 3 es igual a: " + numPotencia);
+        }
+    <\\/script>`
+        },
+        {
+  titulo: "Clase String",
+  codigo: `<button onclick="nombres()">Ingresar nombres</button>
+    <script type="text/javascript">
+        function nombres() {
+            let num = 0;
+            let nombre = prompt("Ingrese un nombre o 'Fin' para terminar");
+            while (nombre != "Fin") {
+                num++;
+                nombre = prompt("Ingrese un nombre o 'Fin' para terminar");
+            }
+            document.write("Se ingresaron " + num + " nombres");
+        }
+    <\\/script>`
+        },
+        {
+    titulo: "Formularios y eventos",
+    codigo: ` <form>
+        <button type="button" onclick=boton(1) >boton 1</button>
+        <button type="button" onclick=boton(2) >boton 2</button>
+        <button type="button" onclick=boton(3) >boton 3</button>
+    </form>
+    <script>
+        function boton(num){
+            alert("Has pulsado el botón " + num);
+        }
+    <\\/script>`
+        },
+        {
+    titulo: "Controles FORM, BUTTON y TEXT",
+    codigo: `<body>
+    <form>
+        <p>Ingrese su nombre:<input type="text" id="nombre"></p>
+        <p>Ingrese su apellido:<input type="text" id="apellido"></p>
+        <p><input type="button" value="Concatenar datos ingresados" onClick="concatenar()"></p>
+        <p><input type="text" id="resultado"></p>
+    </form>
+    <script>
+        function concatenar() {
+            let nom = document.getElementById('nombre').value;
+            let ape = document.getElementById('apellido').value;
+            document.getElementById('resultado').value = nom + ' ' + ape;
+        }
+    <\\/script>`
+        },
+        {
+    titulo: "Control PASSWORD",
+    codigo: `<form>
+            <label>Ingrese su contraseña:</label><br>
+            <input type="password" id="clave1"><br><br>
+            <label>Vuelva a ingresar su contraseña:</label><br>
+            <input type="password" id="clave2"><br><br>
+            <input type="button" value="Verificar" onclick="verificarClaves()">
+        </form>
+        <script type="text/javascript">
+            function verificarClaves() {
+            let clave1 = document.getElementById("clave1").value;
+            let clave2 = document.getElementById("clave2").value;
+            if (clave1 == clave2) {
+                alert("Las contraseñas coinciden");
+            } else {
+                alert("Las contraseñas no coinciden");
+            }
+        }
+    <\\/script>`
+        },
+        {
+    titulo: "Control SELECT",
+    codigo: `<label for="tipoPizza">Elija su pizza:</label>
+    <select id="tipoPizza" onchange="mostrarPrecio()">
+        <option value="">-- Seleccione una opción --</option>
+        <option value="9500">Jamón y Queso</option>
+        <option value="7800">Muzzarella</option>
+        <option value="8900">Morrones</option>
+    </select>
+
+
+    <label for="precioPizza">Precio:</label>
+    <input type="text" id="precioPizza">
+
+
+    <script type="text/javascript">
+        function mostrarPrecio() {
+            let selectPizza = document.getElementById("tipoPizza");
+            let precio = selectPizza.value;
+       
+            let campoPrecio = document.getElementById("precioPizza");
+           
+            if (precio) {
+                campoPrecio.value = "$" + precio;
+            } else {
+                campoPrecio.value = "";
+            }
+        }
+    <\\/script>`
+        },
+        {
+    titulo: "Control CHECKBOX",
+    codigo: `<label><input type="checkbox" id="fut"> Fútbol</label>
+  <label><input type="checkbox" id="bas"> Básket</label>
+  <label><input type="checkbox" id="ten"> Tenis</label>
+  <br>
+  <button onclick="ver()">Ver seleccionados</button>
+
+
+  <script>
+    function ver() {
+      var elegidos = [];
+      if (document.getElementById('fut').checked) elegidos.push('Fútbol');
+      if (document.getElementById('bas').checked) elegidos.push('Básket');
+      if (document.getElementById('ten').checked) elegidos.push('Tenis');
+
+
+      alert(elegidos.length ? 'Elegiste: ' + elegidos.join(', ')
+                            : 'No elegiste ningún deporte');
+    }
+
+    <\\/script>`
+        },
+        {
+    titulo: "Control RADIO",
+    codigo: `</head>
+<body>
+    <div>
+        <h1>Control de Acceso</h1>
+        <p>Por favor, confirma tu edad para acceder al sitio:</p>
+       
+        <div>
+            <div>
+                <input type="radio" id="mayor" name="edad" value="mayor">
+                <label for="mayor">Sí, soy mayor de 18 años</label>
+            </div>
+            <div>
+                <input type="radio" id="menor" name="edad" value="menor">
+                <label for="menor">No, soy menor de 18 años</label>
+            </div>
+        </div>
+       
+        <button id="verificar">Verificar Acceso</button>
+    </div>
+
+
+    <script>
+        document.getElementById('verificar').addEventListener('click', function() {
+            const opcionMayor = document.getElementById('mayor').checked;
+            const opcionMenor = document.getElementById('menor').checked;
+           
+            if (!opcionMayor && !opcionMenor) {
+                alert('Por favor, selecciona una opción');
+                return;
+            }
+            if (opcionMayor) {
+                alert('¡Acceso permitido! Bienvenido/a al sitio.');
+            } else {
+                alert('Lo siento, debes ser mayor de 18 años para acceder a este sitio.');
+            }
+        });
+
+    <\\/script>`
+        },
+        {
+    titulo: "Control TEXTAREA",
+    codigo: `<form>
+      <label>Nombre:</label><br>
+      <input type="text" id="nombre" size="30"><br><br>
+
+      <label>Email:</label><br>
+      <input type="email" id="email" size="30"><br><br>
+
+      <label>Comentarios:</label><br>
+      <textarea id="comentarios" rows="5" cols="40"></textarea><br><br>
+
+      <button type="button" onclick="mostrarDatos()">Enviar</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+    function mostrarDatos() {
+      var nombre = document.getElementById("nombre").value;
+      var email = document.getElementById("email").value;
+      var comentarios = document.getElementById("comentarios").value;
+
+      var mensaje = "Datos ingresados:\n\n";
+      mensaje = mensaje + "Nombre: " + nombre + "\n";
+      mensaje = mensaje + "Email: " + email + "\n";
+      mensaje = mensaje + "Comentarios: " + comentarios;
+
+      alert(mensaje);
+
+      document.getElementById("resultado").innerHTML = 
+        "<h3>Datos recibidos:</h3>" +
+          "<p><strong>Nombre:</strong> " + nombre + "</p>" +
+          "<p><strong>Email:</strong> " + email + "</p>" +
+          "<p><strong>Comentarios:</strong><br>" + comentarios + "</p>";
+    }
+    <\\/script>`
+        },
+        {
+    titulo: "Eventos onFocus y onBlur",
+    codigo: `<script type="text/javascript">
+    function validarContrasena() {
+        var contrasena = prompt("Ingresa tu contraseña:");
+        if (contrasena.length < 7 || contrasena.length > 20) {
+            alert("La contraseña debe tener entre 7 y 20 caracteres.");
+        }
+    }
+
+    <\\/script>`
+        },
+        {
+    titulo: "Eventos onMouseOver y onMouseOut",
+    codigo: `<a href="#" onMouseOver="abrirPestana('https://mail.google.com')">Gmail</a> - <a href="#" onMouseOver="abrirPestana('https://mail.yahoo.com')">Yahoo</a> - <a href="#" onMouseOver="abrirPestana('https://outlook.live.com')">Outlook</a> <script>
+        function abrirPestana(url) {
+            window.open(url, '_blank');
+        }
+
+    <\\/script>`
+        },
+        {
+    titulo: "Evento onLoad",
+    codigo: `  <script>
+    function mensaje() {
+      alert("Bienvenido a la página");
+    }
+
+    <\\/script>`
+        },
+        {
+    titulo: "Objeto WINDOW",
+    codigo: `<script>
+        function abrirVentana() {
+            window.open(
+                'about:blank',
+                'nuevaVentana',
+                'width=600,height=300,resizable=yes'
+            );
+        }
+
+    <\\/script>`
+        },
+        {
+    titulo: "Propiedad Location del objeto WINDOW",
+    codigo: `<script>
+        function aleatorio() {
+            let num;
+            num = Math.random()*3;
+            num = parseInt(num);
+            if (num == 0) {
+                window.location='https://outlook.com';
+            } else if (num == 1) {
+                window.location='https://gmail.com';
+            } else if (num == 2) {
+                window.location='https://yahoo.com';
+            }
+        }
+    <\\/script>`
+        }
+    ];
+
+    // Poblar menú
+    const menu = document.getElementById('menu');
+    const titulo = document.getElementById('titulo');
+    const codigo = document.getElementById('codigo');
+
+    ejercicios.forEach((ej, i) => {
+      const opt = document.createElement('option');
+      opt.value = i;
+      opt.textContent = ej.titulo;
+      menu.appendChild(opt);
+    });
+
+    function render(idx){
+      const ej = ejercicios[idx];
+      titulo.textContent = ej.titulo;
+      codigo.textContent = ej.codigo;
+    }
+
+    // Render inicial
+    render(0);
+
+    // Cambio por menú
+    menu.addEventListener('change', e => render(e.target.value));
+
+    // Copiar al portapapeles
+    document.getElementById('copiar').addEventListener('click', async () => {
+      try{
+        await navigator.clipboard.writeText(codigo.textContent);
+        alert('Código copiado.');
+      }catch(err){
+        alert('No se pudo copiar automáticamente. Seleccioná y copiá manualmente.');
+      }
+    });
+
+    // Descargar como .txt
+    document.getElementById('descargar').addEventListener('click', () => {
+      const blob = new Blob([codigo.textContent], {type:'text/plain'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = (titulo.textContent || 'codigo') + '.txt';
+      document.body.appendChild(a);
+      a.click();
+      URL.revokeObjectURL(url);
+      a.remove();
+    });
+  </script>
+</body>
+</html>
